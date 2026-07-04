@@ -29,6 +29,25 @@ const imageCards = [
       "https://www.destination-vendeegrandlittoral.com/explorer/destination/talmont-saint-hilaire/plage-du-veillon-2/",
   },
   {
+    title: "Fossilklippor vid Plage de la Mine",
+    destination: "Vendée",
+    alt: "Klipporna vid Plage de la Mine dar fossil kan hittas.",
+    imageUrl: "https://cdt85.media.tourinsoft.eu/upload/jard-falaises-mine.JPG",
+    sourceName: "Destination Vendée Grand Littoral",
+    sourceUrl:
+      "https://www.destination-vendeegrandlittoral.com/sit/agenda/randonnees-et-visites/les-richesses-de-la-plage-de-la-mine/",
+  },
+  {
+    title: "Geologi och fossiljakt på stranden",
+    destination: "Vendée",
+    alt: "Guidad geologivandring pa stranden vid Plage de la Mine.",
+    imageUrl:
+      "https://www.destination-vendeegrandlittoral.com/wp-content/uploads/2026/05/CD85-geologie-plage-destination-vendee-grand-littoral.jpg",
+    sourceName: "Destination Vendée Grand Littoral",
+    sourceUrl:
+      "https://www.destination-vendeegrandlittoral.com/sit/agenda/randonnees-et-visites/geologie-a-la-plage-sorties-nature/",
+  },
+  {
     title: "Jard-sur-Mer kustby",
     destination: "Vendée",
     alt: "Kvarn och kustbymiljo i Jard-sur-Mer.",
@@ -64,7 +83,7 @@ const matrixRows = [
   {
     factor: "Fossiler",
     normandy: ["Stark", "Guidad fossiljakt vid Falaises des Vaches Noires, särskilt 6 augusti."],
-    vendee: ["Svag", "Inte samma tydliga fossilcase i briefen."],
+    vendee: ["Bra", "Plage de la Mine: ammoniter och belemniter i jurakalkstenen, guidade familjevandringar finns."],
   },
   {
     factor: "Marknader",
@@ -105,7 +124,7 @@ const plans = {
       "Bad + kvällsmarknad",
       "Port Bourgenay kvällsmarknad om den är aktiv detta datum.",
     ],
-    ["6 aug", "Pointe du Payré", "Kustnatur, vyer och promenad utan att göra dagen för lång."],
+    ["6 aug", "Pointe du Payré", "Kustnatur, vyer och fossilspaning vid Plage de la Mine."],
     ["7 aug", "Barnaktivitet", "Surf/bodyboard, bad eller annan enkel aktivitet."],
     ["8 aug", "Reservdag", "Hamn, marknad, livemusik eller extra strandtid."],
     ["9 aug", "Hemresa", "Håll marginal för lång transport."],
@@ -140,7 +159,7 @@ const plans = {
       "Paris Montparnasse–Les Sables-d'Olonne ca 3,5 timmar, vidare till Jard-sur-Mer.",
     ],
     ["6 aug", "Plage du Veillon", "Bad, vågor och eventuell bodyboard-koll."],
-    ["7 aug", "Pointe du Payré", "Kustnatur och strandtid utan att göra dagen för lång."],
+    ["7 aug", "Pointe du Payré", "Kustnatur, strandtid och fossilspaning vid Plage de la Mine."],
     ["8 aug", "Marknad + bad", "Kvällsmarknad i Port Bourgenay om den är aktiv, annars extra strandtid."],
     ["9 aug", "Hemresa", "Lång transport — håll dagen enkel."],
   ],
