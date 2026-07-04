@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Familjepresentation for Frankrikeresan 3-9 augusti 2026: Normandie eller Vendee."
+    />
+    <title>Frankrike 2026 - familjens kustval</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <nav class="nav" aria-label="Sidnavigering">
+        <a class="brand" href="#top">Frankrike 2026</a>
+        <div class="nav-links">
+          <a href="#bilder">Bildkort</a>
+          <a href="#destinationer">Destinationer</a>
+          <a href="#matris">Beslutsmatris</a>
+          <a href="#resplan">Resplan</a>
+        </div>
+      </nav>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">3-9 augusti 2026</p>
+          <h1 id="hero-title">Vilken kustresa vill vi göra?</h1>
+          <p>
+            Vi väljer mellan två familjevänliga kustbaser: Houlgate/Villers-sur-Mer i
+            Normandie eller Jard-sur-Mer/Talmont-Saint-Hilaire i Vendée.
+          </p>
+          <div class="quick-votes" aria-label="Snabbval">
+            <a href="#bad">Bad</a>
+            <a href="#fossiler">Fossiler</a>
+            <a href="#marknader">Marknader</a>
+          </div>
+        </div>
+        <div class="hero-panel" aria-label="Huvudbeslut">
+          <span>Huvudfråga</span>
+          <strong>Paris + kust, eller bara kust?</strong>
+          <p>Om Paris blir hett i augusti talar mycket för kort Parisvistelse eller ren kustresa.</p>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="section intro-grid" aria-labelledby="family-angle">
+        <div>
+          <p class="eyebrow">Familjevinkeln</p>
+          <h2 id="family-angle">Bad, snäckor, kustmys och ett lagom fossiläventyr</h2>
+        </div>
+        <p>
+          Presentationen är gjord för att Estrid och Alice snabbt ska kunna se vad som känns kul,
+          samtidigt som Magnus och Sara får ett tydligt beslutsunderlag. Fyralternativet är
+          bortvalt och finns därför inte med.
+        </p>
+      </section>
+
+      <section class="section" id="bilder" aria-labelledby="image-title">
+        <div class="section-heading">
+          <p class="eyebrow">Bildkort</p>
+          <h2 id="image-title">Officiella källor eller markerade placeholders</h2>
+          <p>
+            Varje kort visar `sourceName` och `sourceUrl`. Om en fjärrbild inte kan laddas visas
+            en tydlig placeholder i samma kort.
+          </p>
+        </div>
+        <div class="image-grid" id="image-grid"></div>
+      </section>
+
+      <section class="section destinations" id="destinationer" aria-labelledby="dest-title">
+        <div class="section-heading">
+          <p class="eyebrow">Två destinationer</p>
+          <h2 id="dest-title">A: Normandie med fossilcase. B: Vendée med ren kustkänsla.</h2>
+        </div>
+
+        <article class="destination-card normandy">
+          <div>
+            <p class="eyebrow">Alternativ A</p>
+            <h3>Houlgate / Villers-sur-Mer</h3>
+            <p>
+              Belle Époque-känsla, strandpromenader, bad och det starkaste fossilalternativet via
+              Falaises des Vaches Noires och Paléospace.
+            </p>
+            <ul class="check-list">
+              <li>Starkt om Paris fortfarande ska vara med.</li>
+              <li>Bra balans mellan strand, snäckor och Saras fossilintresse.</li>
+              <li id="fossiler">Fossilaktivitet: 6 augusti 2026, 11:00, måste dubbelkollas och bokas manuellt.</li>
+            </ul>
+          </div>
+          <div class="facts-box">
+            <span>Passar bäst om</span>
+            <strong>fossiljakten ska vara ett huvudnummer</strong>
+            <p>Risk: väder, tidvatten och tillgänglighet kan styra dagen.</p>
+          </div>
+        </article>
+
+        <article class="destination-card vendee">
+          <div>
+            <p class="eyebrow">Alternativ B</p>
+            <h3>Jard-sur-Mer / Talmont-Saint-Hilaire</h3>
+            <p>
+              Mer ren Atlantkustsemester: flera stränder, hamn, Plage du Veillon, Pointe du Payré
+              och marknader med sommarkänsla.
+            </p>
+            <ul class="check-list">
+              <li id="bad">Starkt badcase med strandvariation.</li>
+              <li id="marknader">Port Bourgenay kvällsmarknad: sannolikt onsdag 5 augusti 2026, måste kontrolleras.</li>
+              <li>Jard-sur-Mer veckomarknad: sannolikt måndag 3 augusti 2026.</li>
+            </ul>
+          </div>
+          <div class="facts-box">
+            <span>Passar bäst om</span>
+            <strong>familjen vill minimera Paris och göra kustsemester</strong>
+            <p>Risk: längre transport om Paris ändå ska vara en tydlig del av resan.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="section kids-grid" aria-labelledby="kids-title">
+        <div class="likes">
+          <p class="eyebrow">Barnens röst</p>
+          <h2 id="kids-title">Vad Estrid och Alice sannolikt gillar</h2>
+          <div class="pill-grid">
+            <span>Badstrand</span>
+            <span>Snäckor</span>
+            <span>Surf/bodyboard</span>
+            <span>Fossiljakt i liten dos</span>
+            <span>Marknad och livemusik</span>
+            <span>Lafayette/Hamilton-historia</span>
+          </div>
+        </div>
+        <div class="watchouts">
+          <p class="eyebrow">Risker</p>
+          <h2>Vad kan bli tråkigt eller för varmt</h2>
+          <ul class="check-list">
+            <li>För mycket fossil-/museumstid kan kännas som en vuxenresa.</li>
+            <li>Paris i augustivärme kan behöva kortas eller skippas.</li>
+            <li>Långa transportdagar kan äta upp badtid.</li>
+            <li>Aktiviteter vid klippor behöver lågvatten, guidning och säkerhetskoll.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="matris" aria-labelledby="matrix-title">
+        <div class="section-heading">
+          <p class="eyebrow">Beslutsmatris</p>
+          <h2 id="matrix-title">Snabb jämförelse</h2>
+        </div>
+        <div class="matrix-wrap">
+          <table class="decision-table">
+            <thead>
+              <tr>
+                <th>Faktor</th>
+                <th>Normandie: Houlgate/Villers</th>
+                <th>Vendée: Jard/Talmont</th>
+              </tr>
+            </thead>
+            <tbody id="matrix-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section itinerary" id="resplan" aria-labelledby="itinerary-title">
+        <div class="section-heading">
+          <p class="eyebrow">3-9 augusti</p>
+          <h2 id="itinerary-title">En enkel möjlig resplan</h2>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Resplansvariant">
+          <button class="tab active" type="button" role="tab" aria-selected="true" data-plan="normandie">
+            Normandie
+          </button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-plan="vendee">
+            Vendée
+          </button>
+        </div>
+        <ol class="timeline" id="timeline"></ol>
+        <aside class="early-option">
+          <h3>Om kattpensionatet ger tidigare avresa</h3>
+          <p>
+            Lägg 1-2 extra dagar före 3 augusti. Använd dem till lugnare transport, en kort
+            Parisdel om vädret är snällt, eller mer kusttid utan stress.
+          </p>
+        </aside>
+      </section>
+
+      <section class="section questions" aria-labelledby="questions-title">
+        <div>
+          <p class="eyebrow">Öppna frågor</p>
+          <h2 id="questions-title">Det som behöver avgöras innan bokning</h2>
+        </div>
+        <ul class="question-list">
+          <li>Ska Paris vara med alls?</li>
+          <li>Vilket transportsätt väljer vi: tåg, bil eller flyg?</li>
+          <li>Behövs hyrbil vid kusten, och vad gäller för svenskt körkort, deposition och försäkring?</li>
+          <li>Vill barnen helst ha badsemester eller Paris + bad?</li>
+          <li>Ska boendet vara ett enda kustboende eller två stopp?</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Byggd som första statisk familjepresentation från briefen 2026-07-04.
+        Datum och aktiviteter ska dubbelkollas mot arrangörerna före bokning.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
