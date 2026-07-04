@@ -299,6 +299,11 @@ h3 {
   color: #ffe0a0;
 }
 
+.destination-card h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .normandy {
   background:
     linear-gradient(110deg, rgba(23, 33, 43, 0.88), rgba(47, 111, 143, 0.58)),

@@ -63,7 +63,7 @@ const matrixRows = [
   },
   {
     factor: "Fossiler",
-    normandy: ["Stark", "Falaises des Vaches Noires och Paléospace, särskilt 6 augusti."],
+    normandy: ["Stark", "Guidad fossiljakt vid Falaises des Vaches Noires, särskilt 6 augusti."],
     vendee: ["Svag", "Inte samma tydliga fossilcase i briefen."],
   },
   {
@@ -78,7 +78,7 @@ const matrixRows = [
   },
   {
     factor: "Vuxenpepp",
-    normandy: ["Stark", "Bra kompromiss mellan Paris, kust och Saras fossilspår."],
+    normandy: ["Stark", "Bra kompromiss mellan Paris, kust och fossilspåret."],
     vendee: ["Stark", "Tydlig semesterkänsla och enklare kustfokus."],
   },
 ];
@@ -90,10 +90,10 @@ const plans = {
     ["5 aug", "Cabourg/Houlgate/Villers", "Bad, snäckor och valfri badortskänsla."],
     [
       "6 aug",
-      "Fossilaktivitet",
-      "Paléospace/Falaises des Vaches Noires om platsen fortfarande är bokningsbar.",
+      "Fossiljakt",
+      "Guidad fossiljakt vid Falaises des Vaches Noires om platsen fortfarande är bokningsbar.",
     ],
-    ["7 aug", "Reservdag", "Väderbuffert, strand eller kuststad."],
+    ["7 aug", "Reservdag", "Väderbuffert, strand eller kuststad. Fredag: kvällsmarknad i Houlgate."],
     ["8 aug", "Barnens val", "Lugn dag med bad, glass, marknad eller kort utflykt."],
     ["9 aug", "Hemresa", "Håll dagen enkel."],
   ],
@@ -109,6 +109,40 @@ const plans = {
     ["7 aug", "Barnaktivitet", "Surf/bodyboard, bad eller annan enkel aktivitet."],
     ["8 aug", "Reservdag", "Hamn, marknad, livemusik eller extra strandtid."],
     ["9 aug", "Hemresa", "Håll marginal för lång transport."],
+  ],
+  "paris-normandie": [
+    ["3 aug", "Resa till Paris", "Ankomst, incheckning och lugn kvällspromenad med glass."],
+    [
+      "4 aug",
+      "Paris med barnen",
+      "Morgonaktivitet innan värmen, t.ex. Jardin du Luxembourg eller Paris Plages. Skugga och paus mitt på dagen.",
+    ],
+    [
+      "5 aug",
+      "Tåg till kusten",
+      "Paris–Deauville/Trouville ca 2 timmar, vidare till Houlgate. Bad på eftermiddagen.",
+    ],
+    ["6 aug", "Fossiljakt", "Guidad fossiljakt vid Falaises des Vaches Noires, 11:00 — dubbelkolla bokningen."],
+    ["7 aug", "Stranddag", "Houlgate eller Cabourg: bad, snäckor och bodyboard. Kvällsmarknad i Houlgate på fredagen."],
+    ["8 aug", "Barnens val", "Bad, glass, marknad eller kvällsaktivitet — håll det enkelt."],
+    ["9 aug", "Hemresa", "Tåg tillbaka via Paris, håll marginal för anslutningar."],
+  ],
+  "paris-vendee": [
+    ["3 aug", "Resa till Paris", "Ankomst, incheckning och lugn kväll."],
+    [
+      "4 aug",
+      "Paris med barnen",
+      "Morgonaktivitet innan värmen, paus i skugga mitt på dagen.",
+    ],
+    [
+      "5 aug",
+      "TGV till Vendée",
+      "Paris Montparnasse–Les Sables-d'Olonne ca 3,5 timmar, vidare till Jard-sur-Mer.",
+    ],
+    ["6 aug", "Plage du Veillon", "Bad, vågor och eventuell bodyboard-koll."],
+    ["7 aug", "Pointe du Payré", "Kustnatur och strandtid utan att göra dagen för lång."],
+    ["8 aug", "Marknad + bad", "Kvällsmarknad i Port Bourgenay om den är aktiv, annars extra strandtid."],
+    ["9 aug", "Hemresa", "Lång transport — håll dagen enkel."],
   ],
 };
 
