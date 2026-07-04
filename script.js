@@ -67,18 +67,18 @@ const matrixRows = [
   },
   {
     factor: "Transport-enkelhet",
-    normandy: ["Stark", "Rimligare om Paris är med i planen."],
-    vendee: ["Mellan", "Bäst om ni väljer bort Paris eller accepterar längre resa."],
+    normandy: ["Stark", "Tåg hela vägen: TER till Trouville-Deauville, byte till kustbanan som stannar i Villers och Houlgate. Bil behövs inte."],
+    vendee: ["Mellan", "TGV till Les Sables-d'Olonne går fint, men sista ~2 milen till Jard kräver i praktiken hyrbil — bussarna är glesa och målen utspridda."],
   },
   {
     factor: "Bad",
-    normandy: ["Bra", "Houlgate, Villers och närliggande badorter."],
-    vendee: ["Stark", "Plage du Veillon och flera Jard-stränder ger mer variation."],
+    normandy: ["Bra", "Finkorniga sandstränder med snäckor vid lågvatten: Houlgate, Villers, Deauville."],
+    vendee: ["Stark", "Plage du Veillon: bred sandstrand med snäckor, ingen sten i badet. Fler Jard-stränder som variation."],
   },
   {
     factor: "Snäckor och strandfynd",
-    normandy: ["Bra", "Strandpromenader och lågvatten kan bli konkreta fyndstunder."],
-    vendee: ["Bra", "Många stränder och kustpromenader."],
+    normandy: ["Bra", "Stora tidvattnet blottar enorma sandbankar: gräv hjärtmusslor och knivmusslor (reglerat, max 5 kg/person)."],
+    vendee: ["Bra", "Klippooler vid Ragounite och Payré-estuariet: snäckor, krabbor och musslor utan grävande — lätt för barnen."],
   },
   {
     factor: "Fossiler",
@@ -139,7 +139,7 @@ const plans = {
     [
       "5 aug",
       "Tåg till kusten",
-      "Paris–Deauville/Trouville ca 2 timmar, vidare till Houlgate. Bad på eftermiddagen.",
+      "Paris Saint-Lazare–Trouville-Deauville ca 2h15, byte till kustbanan som stannar i Villers och Houlgate. Bad på eftermiddagen.",
     ],
     ["6 aug", "Fossiljakt", "Guidad fossiljakt vid Falaises des Vaches Noires, 11:00 — dubbelkolla bokningen."],
     ["7 aug", "Stranddag", "Houlgate eller Cabourg: bad, snäckor och bodyboard. Kvällsmarknad i Houlgate på fredagen."],
@@ -156,7 +156,7 @@ const plans = {
     [
       "5 aug",
       "TGV till Vendée",
-      "Paris Montparnasse–Les Sables-d'Olonne ca 3,5 timmar, vidare till Jard-sur-Mer.",
+      "Paris Montparnasse–Les Sables-d'Olonne ca 3,5–4 timmar. Hämta hyrbil vid stationen — sista biten till Jard-sur-Mer saknar tät busstrafik.",
     ],
     ["6 aug", "Plage du Veillon", "Bad, vågor och eventuell bodyboard-koll."],
     ["7 aug", "Pointe du Payré", "Kustnatur, strandtid och fossilspaning vid Plage de la Mine."],
