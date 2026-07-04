@@ -134,7 +134,7 @@ const plans = {
     [
       "4 aug",
       "Paris med barnen",
-      "Morgonaktivitet innan värmen, t.ex. Jardin du Luxembourg eller Paris Plages. Skugga och paus mitt på dagen.",
+      "Morgonaktivitet innan värmen, t.ex. Jardin du Luxembourg eller Paris Plages. Blir det för hett: dagsutflykt till Moret-sur-Loing (45–50 min tåg) med kanot och skuggiga flodbankar.",
     ],
     [
       "5 aug",
@@ -151,7 +151,7 @@ const plans = {
     [
       "4 aug",
       "Paris med barnen",
-      "Morgonaktivitet innan värmen, paus i skugga mitt på dagen.",
+      "Morgonaktivitet innan värmen, paus i skugga mitt på dagen. Blir det för hett: dagsutflykt till Moret-sur-Loing (45–50 min tåg) med kanot och skuggiga flodbankar.",
     ],
     [
       "5 aug",
