@@ -130,11 +130,11 @@ const plans = {
     ["9 aug", "Hemresa", "Håll marginal för lång transport."],
   ],
   "paris-normandie": [
-    ["3 aug", "Resa till Paris", "Ankomst, incheckning och lugn kvällspromenad med glass."],
+    ["3 aug", "Resa till Paris", "Ankomst, incheckning och lugn kvällspromenad på Île Saint-Louis med glass. Två nätter i Paris."],
     [
       "4 aug",
       "Paris med barnen",
-      "Morgonaktivitet innan värmen, t.ex. Jardin du Luxembourg eller Paris Plages. Blir det för hett: dagsutflykt till Moret-sur-Loing (45–50 min tåg) med kanot och skuggiga flodbankar.",
+      "Barnens önskemål: Notre-Dame (Île de la Cité) på morgonen innan värmen och Eiffeltornet. Blir det för hett mitt på dagen: skugga i Jardin du Luxembourg, Paris Plages vid Seine eller dagsutflykt till Moret-sur-Loing (45–50 min tåg) med kanot och skuggiga flodbankar. På kvällen: Eiffeltornets glittershow varje hel timme efter mörkrets inbrott.",
     ],
     [
       "5 aug",
@@ -247,5 +247,5 @@ function setupTabs() {
 
 renderImageCards();
 renderMatrix();
-renderPlan("normandie");
+renderPlan("paris-normandie");
 setupTabs();
