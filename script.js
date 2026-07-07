@@ -67,7 +67,7 @@ const matrixRows = [
   },
   {
     factor: "Transport-enkelhet",
-    normandy: ["Stark", "Tåg till Trouville-Deauville och därefter kustbanan i säsong. Hyrbil från Deauville/Trouville gör boende- och utflyktsvalet friare."],
+    normandy: ["Stark", "Boende i Deauville gör tåg och hyrbil enklare. Hyrbil från Deauville/Trouville gör Houlgate, Villers och utflykter friare."],
     vendee: ["Mellan", "TGV till Les Sables-d'Olonne går fint, men sista ~2 milen till Jard kräver i praktiken hyrbil — bussarna är glesa och målen utspridda."],
   },
   {
@@ -132,10 +132,10 @@ const plans = {
   "paris-normandie": [
     [
       "2 aug",
-      "Bokat: flyg till Paris",
-      "Bokat: Norwegian direkt Stockholm Arlanda (ARN) till Paris CDG. Avgång 07:25, ankomst 10:05. Öppen fråga: lägg till en natt i Paris, sov nära CDG eller åk direkt mot Normandie.",
+      "Bokat: flyg + transfer + Paris",
+      "Norwegian direkt Stockholm Arlanda (ARN) till Paris CDG. Avgång 07:25, ankomst 10:05. Taxi från CDG till 208 Suite Guerlain är bokad och föraren följer flighten. Incheckning i lägenheten 16-23.",
     ],
-    ["3 aug", "Bokat: Parisboende börjar", "Incheckning på 145 Rue du Temple vid Temple-République. Kvällsval: Le Marais nära boendet eller Île Saint-Louis med glass."],
+    ["3 aug", "Parisdag från Marais", "Boendet ligger vid 15 rue Sainte-Croix de la Bretonnerie, Marais / Hôtel de Ville. Kör en lugn Parisdag med korta förflyttningar och enkel kväll nära boendet."],
     [
       "4 aug",
       "Parisval på plats",
@@ -143,21 +143,21 @@ const plans = {
     ],
     [
       "5 aug",
-      "Bokat: Eiffeltornet + mot kusten",
-      "Bokat: Eiffeltornet, toppen med hiss, 12:30 för 4 personer (101 €). Åk därefter mot Trouville-Deauville och hämta hyrbil där, eller jämför med hyrbil från CDG om det blir smidigare.",
+      "Bokat: Eiffeltornet + Deauville",
+      "Utcheckning i Paris senast 11. Eiffeltornet, toppen med hiss, 12:30 för 4 personer (101 €). Därefter vidare till You Hotel Deauville, där incheckning är från 15. Lås transport: tåg, hyrbil från Paris/CDG eller hyrbil i Deauville.",
     ],
-    ["6 aug", "Val på plats: fossil eller strand", "Preliminärt: guidad fossiljakt vid Falaises des Vaches Noires kl 11:00 om den är bokningsbar. Annars stranddag."],
+    ["6 aug", "Val på plats: Paléospace eller strand", "Paléospace-betalning är registrerad, men kontrollera separat biljett/tid. Kombinera Villers-sur-Mer med strand eller Falaises des Vaches Noires om tidvatten och energi passar."],
     ["7 aug", "Val på plats: strand + kväll", "Houlgate, Villers eller Cabourg efter väder. Fredag kväll: Houlgate kvällsmarknad om energin finns."],
     ["8 aug", "Val på plats: barnens dag", "Bad, glass, marknad eller kort utflykt. Håll dagen enkel inför hemresan."],
-    ["9 aug", "Bokat: hemresa", "Bokat: SAS direkt Paris CDG till Stockholm Arlanda (ARN). Avgång 20:50, ankomst 23:20. Håll god marginal från Normandie till CDG."],
+    ["9 aug", "Bokat: hemresa", "Utcheckning från You Hotel Deauville senast 12. SAS direkt Paris CDG till Stockholm Arlanda (ARN). Avgång 20:50, ankomst 23:20. Håll god marginal från Normandie till CDG."],
   ],
   "paris-vendee": [
     [
       "2 aug",
       "Flyg till Paris",
-      "Bokat: Norwegian direkt Stockholm Arlanda (ARN) till Paris CDG. Avgång 07:25, ankomst 10:05. Första natten behöver lösas om Parisboendet börjar 3 augusti.",
+      "Bokat: Norwegian direkt Stockholm Arlanda (ARN) till Paris CDG. Avgång 07:25, ankomst 10:05. Parisboendet är bokat 2-5 augusti.",
     ],
-    ["3 aug", "Resa till Paris", "Ankomst, incheckning och lugn kväll."],
+    ["3 aug", "Paris från Marais", "Lugn Parisdag med boendet i Marais / Hôtel de Ville som bas."],
     [
       "4 aug",
       "Paris med barnen",
