@@ -67,7 +67,7 @@ const matrixRows = [
   },
   {
     factor: "Transport-enkelhet",
-    normandy: ["Stark", "Tåg hela vägen: TER till Trouville-Deauville, byte till kustbanan som stannar i Villers och Houlgate. Bil behövs inte."],
+    normandy: ["Stark", "Tåg till Trouville-Deauville och därefter kustbanan i säsong. Hyrbil från Deauville/Trouville gör boende- och utflyktsvalet friare."],
     vendee: ["Mellan", "TGV till Les Sables-d'Olonne går fint, men sista ~2 milen till Jard kräver i praktiken hyrbil — bussarna är glesa och målen utspridda."],
   },
   {
@@ -130,7 +130,7 @@ const plans = {
     ["9 aug", "Hemresa", "Håll marginal för lång transport."],
   ],
   "paris-normandie": [
-    ["3 aug", "Resa till Paris", "Ankomst, incheckning och lugn kvällspromenad på Île Saint-Louis med glass. Två nätter i Paris."],
+    ["3 aug", "Resa till Paris", "Ankomst och incheckning på 145 Rue du Temple vid Temple-République. Lugn kvällspromenad i Le Marais eller på Île Saint-Louis med glass."],
     [
       "4 aug",
       "Paris med barnen",
@@ -139,7 +139,7 @@ const plans = {
     [
       "5 aug",
       "Tåg till kusten",
-      "Paris Saint-Lazare–Trouville-Deauville ca 2h15, byte till kustbanan som stannar i Villers och Houlgate. Bad på eftermiddagen.",
+      "Paris Saint-Lazare till Trouville-Deauville. Hämta hyrbil där om ni vill ha frihet, eller byt till kustbanan mot Villers/Houlgate/Dives-Cabourg i säsong. Bad på eftermiddagen.",
     ],
     ["6 aug", "Fossiljakt", "Guidad fossiljakt vid Falaises des Vaches Noires, 11:00 — dubbelkolla bokningen."],
     ["7 aug", "Stranddag", "Houlgate eller Cabourg: bad, snäckor och bodyboard. Kvällsmarknad i Houlgate på fredagen."],
