@@ -130,6 +130,11 @@ const plans = {
     ["9 aug", "Hemresa", "Håll marginal för lång transport."],
   ],
   "paris-normandie": [
+    [
+      "2 aug",
+      "Flyg till Paris",
+      "Bokat: Norwegian direkt Stockholm ARN-Paris CDG 07:25-10:05. Öppen fråga: lägg till en natt i Paris, sov nära CDG eller åk direkt mot Normandie.",
+    ],
     ["3 aug", "Resa till Paris", "Ankomst och incheckning på 145 Rue du Temple vid Temple-République. Lugn kvällspromenad i Le Marais eller på Île Saint-Louis med glass."],
     [
       "4 aug",
@@ -138,15 +143,20 @@ const plans = {
     ],
     [
       "5 aug",
-      "Tåg till kusten",
-      "Paris Saint-Lazare till Trouville-Deauville. Hämta hyrbil där om ni vill ha frihet, eller byt till kustbanan mot Villers/Houlgate/Dives-Cabourg i säsong. Bad på eftermiddagen.",
+      "Eiffeltornet + mot kusten",
+      "Bokat: Eiffeltornet, toppen med hiss, 12:30 för 4 personer (101 €). Åk därefter mot Trouville-Deauville och hämta hyrbil där, eller jämför med hyrbil från CDG om det blir smidigare.",
     ],
     ["6 aug", "Fossiljakt", "Guidad fossiljakt vid Falaises des Vaches Noires, 11:00 — dubbelkolla bokningen."],
     ["7 aug", "Stranddag", "Houlgate eller Cabourg: bad, snäckor och bodyboard. Kvällsmarknad i Houlgate på fredagen."],
     ["8 aug", "Barnens val", "Bad, glass, marknad eller kvällsaktivitet — håll det enkelt."],
-    ["9 aug", "Hemresa", "Tåg tillbaka via Paris, håll marginal för anslutningar."],
+    ["9 aug", "Hemresa", "Bokat: SAS direkt Paris CDG-Stockholm ARN 20:50-23:20. Håll god marginal från Normandie till CDG."],
   ],
   "paris-vendee": [
+    [
+      "2 aug",
+      "Flyg till Paris",
+      "Bokat: Norwegian direkt Stockholm ARN-Paris CDG 07:25-10:05. Första natten behöver lösas om Parisboendet börjar 3 augusti.",
+    ],
     ["3 aug", "Resa till Paris", "Ankomst, incheckning och lugn kväll."],
     [
       "4 aug",
@@ -155,13 +165,13 @@ const plans = {
     ],
     [
       "5 aug",
-      "TGV till Vendée",
-      "Paris Montparnasse–Les Sables-d'Olonne ca 3,5–4 timmar. Hämta hyrbil vid stationen — sista biten till Jard-sur-Mer saknar tät busstrafik.",
+      "Eiffeltornet + TGV till Vendée",
+      "Bokat: Eiffeltornet, toppen med hiss, 12:30 för 4 personer (101 €). Därefter TGV Paris Montparnasse–Les Sables-d'Olonne ca 3,5–4 timmar, med hyrbil vid stationen.",
     ],
     ["6 aug", "Plage du Veillon", "Bad, vågor och eventuell bodyboard-koll."],
     ["7 aug", "Pointe du Payré", "Kustnatur, strandtid och fossilspaning vid Plage de la Mine."],
     ["8 aug", "Marknad + bad", "Kvällsmarknad i Port Bourgenay om den är aktiv, annars extra strandtid."],
-    ["9 aug", "Hemresa", "Lång transport — håll dagen enkel."],
+    ["9 aug", "Hemresa", "Bokat: SAS direkt Paris CDG-Stockholm ARN 20:50-23:20. Lång transportdag från Vendée — håll mycket marginal."],
   ],
 };
 
