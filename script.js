@@ -39,7 +39,7 @@ const plans = {
       "Utcheckning i Paris senast 11. Eiffeltornet, toppen med hiss, 12:30 för 4 personer (101 €). Därefter vidare till You Hotel Deauville, där incheckning är från 15. Lås transport: tåg, hyrbil från Paris/CDG eller hyrbil i Deauville.",
     ],
     ["6 aug", "Val på plats: Paléospace + semi-nocturne", "Paléospace-betalning är registrerad, men kontrollera separat biljett/tid. Kombinera Villers-sur-Mer med strand eller Falaises des Vaches Noires om tidvatten och energi passar. Kväll: semi-nocturne-marknad när info kommer; boka taxi hem till Deauville."],
-    ["7 aug", "Val på plats: strand + kväll", "Houlgate, Villers eller Cabourg efter väder. Fredag kväll: Houlgate kvällsmarknad om energin finns."],
+    ["7 aug", "Val på plats: strand + Houlgate nattmarknad", "Houlgate, Villers eller Cabourg efter väder. Fredag kväll: nattmarknad i Houlgate, info kommer via e-post. Boka taxi eller annan hemtransport till Deauville när tid och plats är bekräftade."],
     ["8 aug", "Val på plats: barnens dag", "Bad, glass, marknad eller kort utflykt. Håll dagen enkel inför hemresan."],
     ["9 aug", "Bokat: hemresa", "Utcheckning från You Hotel Deauville senast 12. SAS direkt Paris CDG till Stockholm Arlanda (ARN). Avgång 20:50, ankomst 23:20. Håll god marginal från Normandie till CDG."],
   ],
