@@ -132,24 +132,24 @@ const plans = {
   "paris-normandie": [
     [
       "2 aug",
-      "Flyg till Paris",
+      "Bokat: flyg till Paris",
       "Bokat: Norwegian direkt Stockholm Arlanda (ARN) till Paris CDG. Avgång 07:25, ankomst 10:05. Öppen fråga: lägg till en natt i Paris, sov nära CDG eller åk direkt mot Normandie.",
     ],
-    ["3 aug", "Resa till Paris", "Ankomst och incheckning på 145 Rue du Temple vid Temple-République. Lugn kvällspromenad i Le Marais eller på Île Saint-Louis med glass."],
+    ["3 aug", "Bokat: Parisboende börjar", "Incheckning på 145 Rue du Temple vid Temple-République. Kvällsval: Le Marais nära boendet eller Île Saint-Louis med glass."],
     [
       "4 aug",
-      "Paris med barnen",
-      "Barnens önskemål: Notre-Dame (Île de la Cité) på morgonen innan värmen och Eiffeltornet. Blir det för hett mitt på dagen: skugga i Jardin du Luxembourg, Paris Plages vid Seine eller dagsutflykt till Moret-sur-Loing (45–50 min tåg) med kanot och skuggiga flodbankar. På kvällen: Eiffeltornets glittershow varje hel timme efter mörkrets inbrott.",
+      "Parisval på plats",
+      "Barnens önskemål: Notre-Dame på morgonen innan värmen. Blir det för hett mitt på dagen: skugga i Jardin du Luxembourg, Paris Plages vid Seine eller dagsutflykt till Moret-sur-Loing. På kvällen: Eiffeltornets glittershow varje hel timme efter mörkrets inbrott.",
     ],
     [
       "5 aug",
-      "Eiffeltornet + mot kusten",
+      "Bokat: Eiffeltornet + mot kusten",
       "Bokat: Eiffeltornet, toppen med hiss, 12:30 för 4 personer (101 €). Åk därefter mot Trouville-Deauville och hämta hyrbil där, eller jämför med hyrbil från CDG om det blir smidigare.",
     ],
-    ["6 aug", "Fossiljakt", "Guidad fossiljakt vid Falaises des Vaches Noires, 11:00 — dubbelkolla bokningen."],
-    ["7 aug", "Stranddag", "Houlgate eller Cabourg: bad, snäckor och bodyboard. Kvällsmarknad i Houlgate på fredagen."],
-    ["8 aug", "Barnens val", "Bad, glass, marknad eller kvällsaktivitet — håll det enkelt."],
-    ["9 aug", "Hemresa", "Bokat: SAS direkt Paris CDG till Stockholm Arlanda (ARN). Avgång 20:50, ankomst 23:20. Håll god marginal från Normandie till CDG."],
+    ["6 aug", "Val på plats: fossil eller strand", "Preliminärt: guidad fossiljakt vid Falaises des Vaches Noires kl 11:00 om den är bokningsbar. Annars stranddag."],
+    ["7 aug", "Val på plats: strand + kväll", "Houlgate, Villers eller Cabourg efter väder. Fredag kväll: Houlgate kvällsmarknad om energin finns."],
+    ["8 aug", "Val på plats: barnens dag", "Bad, glass, marknad eller kort utflykt. Håll dagen enkel inför hemresan."],
+    ["9 aug", "Bokat: hemresa", "Bokat: SAS direkt Paris CDG till Stockholm Arlanda (ARN). Avgång 20:50, ankomst 23:20. Håll god marginal från Normandie till CDG."],
   ],
   "paris-vendee": [
     [

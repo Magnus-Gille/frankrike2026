@@ -201,6 +201,76 @@ h3 {
   margin-top: clamp(2.5rem, 6vw, 4rem);
 }
 
+.status-grid,
+.decision-strip {
+  display: grid;
+  gap: 1rem;
+}
+
+.status-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.status-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.1rem;
+  background: var(--surface);
+  box-shadow: 0 8px 28px rgba(23, 33, 43, 0.07);
+}
+
+.status-card.locked {
+  border-color: rgba(77, 124, 89, 0.42);
+  background: #f7fbf7;
+}
+
+.status-card h3 {
+  margin-bottom: 0.6rem;
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+}
+
+.status-card p {
+  color: var(--muted);
+}
+
+.status-card strong {
+  display: block;
+  margin-top: 0.8rem;
+  color: var(--green);
+  line-height: 1.25;
+}
+
+.decision-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1rem;
+}
+
+.decision-strip article {
+  border-top: 4px solid var(--gold);
+  border-radius: 8px;
+  padding: 1rem;
+  background: #fffaf0;
+}
+
+.decision-strip span {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--gold);
+  font-size: 0.76rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.decision-strip strong {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.decision-strip p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .image-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -606,6 +676,11 @@ h3 {
 
   .image-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .status-grid,
+  .decision-strip {
+    grid-template-columns: 1fr;
   }
 
   .stay-grid,
