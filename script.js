@@ -133,7 +133,7 @@ const plans = {
     [
       "2 aug",
       "Flyg till Paris",
-      "Bokat: Norwegian direkt Stockholm ARN-Paris CDG 07:25-10:05. Öppen fråga: lägg till en natt i Paris, sov nära CDG eller åk direkt mot Normandie.",
+      "Bokat: Norwegian direkt Stockholm Arlanda (ARN) till Paris CDG. Avgång 07:25, ankomst 10:05. Öppen fråga: lägg till en natt i Paris, sov nära CDG eller åk direkt mot Normandie.",
     ],
     ["3 aug", "Resa till Paris", "Ankomst och incheckning på 145 Rue du Temple vid Temple-République. Lugn kvällspromenad i Le Marais eller på Île Saint-Louis med glass."],
     [
@@ -149,13 +149,13 @@ const plans = {
     ["6 aug", "Fossiljakt", "Guidad fossiljakt vid Falaises des Vaches Noires, 11:00 — dubbelkolla bokningen."],
     ["7 aug", "Stranddag", "Houlgate eller Cabourg: bad, snäckor och bodyboard. Kvällsmarknad i Houlgate på fredagen."],
     ["8 aug", "Barnens val", "Bad, glass, marknad eller kvällsaktivitet — håll det enkelt."],
-    ["9 aug", "Hemresa", "Bokat: SAS direkt Paris CDG-Stockholm ARN 20:50-23:20. Håll god marginal från Normandie till CDG."],
+    ["9 aug", "Hemresa", "Bokat: SAS direkt Paris CDG till Stockholm Arlanda (ARN). Avgång 20:50, ankomst 23:20. Håll god marginal från Normandie till CDG."],
   ],
   "paris-vendee": [
     [
       "2 aug",
       "Flyg till Paris",
-      "Bokat: Norwegian direkt Stockholm ARN-Paris CDG 07:25-10:05. Första natten behöver lösas om Parisboendet börjar 3 augusti.",
+      "Bokat: Norwegian direkt Stockholm Arlanda (ARN) till Paris CDG. Avgång 07:25, ankomst 10:05. Första natten behöver lösas om Parisboendet börjar 3 augusti.",
     ],
     ["3 aug", "Resa till Paris", "Ankomst, incheckning och lugn kväll."],
     [
@@ -171,7 +171,7 @@ const plans = {
     ["6 aug", "Plage du Veillon", "Bad, vågor och eventuell bodyboard-koll."],
     ["7 aug", "Pointe du Payré", "Kustnatur, strandtid och fossilspaning vid Plage de la Mine."],
     ["8 aug", "Marknad + bad", "Kvällsmarknad i Port Bourgenay om den är aktiv, annars extra strandtid."],
-    ["9 aug", "Hemresa", "Bokat: SAS direkt Paris CDG-Stockholm ARN 20:50-23:20. Lång transportdag från Vendée — håll mycket marginal."],
+    ["9 aug", "Hemresa", "Bokat: SAS direkt Paris CDG till Stockholm Arlanda (ARN). Avgång 20:50, ankomst 23:20. Lång transportdag från Vendée — håll mycket marginal."],
   ],
 };
 
