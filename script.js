@@ -45,6 +45,323 @@ const plans = {
   ],
 };
 
+const weatherPlaces = {
+  paris: {
+    name: "Paris",
+    latitude: 48.8566,
+    longitude: 2.3522,
+  },
+  deauville: {
+    name: "Deauville",
+    latitude: 49.357,
+    longitude: 0.083,
+  },
+  villers: {
+    name: "Villers-sur-Mer",
+    latitude: 49.322,
+    longitude: 0.001,
+  },
+  houlgate: {
+    name: "Houlgate",
+    latitude: 49.299,
+    longitude: -0.074,
+  },
+};
+
+const weatherDays = [
+  {
+    date: "2026-08-02",
+    label: "2 aug",
+    title: "Ankomst till Paris",
+    stops: ["paris"],
+    note: "CDG, taxi och första kvällen i Marais.",
+  },
+  {
+    date: "2026-08-03",
+    label: "3 aug",
+    title: "Paris från Marais",
+    stops: ["paris"],
+    note: "Lugn stadsdag med korta förflyttningar.",
+  },
+  {
+    date: "2026-08-04",
+    label: "4 aug",
+    title: "Parisval på plats",
+    stops: ["paris"],
+    note: "Notre-Dame, sval paus eller kväll vid Eiffeltornet.",
+  },
+  {
+    date: "2026-08-05",
+    label: "5 aug",
+    title: "Paris till Deauville",
+    stops: ["paris", "deauville"],
+    note: "Eiffeltornet mitt på dagen och vidare mot Normandie.",
+  },
+  {
+    date: "2026-08-06",
+    label: "6 aug",
+    title: "Villers-sur-Mer",
+    stops: ["villers", "deauville"],
+    note: "Paléospace, strand eller semi-nocturne-kväll.",
+  },
+  {
+    date: "2026-08-07",
+    label: "7 aug",
+    title: "Houlgateförslag",
+    stops: ["houlgate", "deauville"],
+    note: "Stranddag och möjlig nattmarknad i Houlgate.",
+  },
+  {
+    date: "2026-08-08",
+    label: "8 aug",
+    title: "Normandie på plats",
+    stops: ["deauville"],
+    note: "Bad, glass, marknad eller kort utflykt.",
+  },
+  {
+    date: "2026-08-09",
+    label: "9 aug",
+    title: "Hemresedag",
+    stops: ["deauville", "paris"],
+    note: "Utcheckning i Deauville och kvällsflyg från CDG.",
+  },
+];
+
+const weatherCodeText = {
+  0: "klart",
+  1: "mest klart",
+  2: "halvklart",
+  3: "mulet",
+  45: "dimma",
+  48: "dimma med rimfrost",
+  51: "lätt duggregn",
+  53: "duggregn",
+  55: "täta duggregn",
+  56: "underkylt duggregn",
+  57: "kraftigt underkylt duggregn",
+  61: "lätt regn",
+  63: "regn",
+  65: "kraftigt regn",
+  66: "underkylt regn",
+  67: "kraftigt underkylt regn",
+  71: "lätt snöfall",
+  73: "snöfall",
+  75: "kraftigt snöfall",
+  77: "snökorn",
+  80: "lätta regnskurar",
+  81: "regnskurar",
+  82: "kraftiga regnskurar",
+  85: "lätta snöbyar",
+  86: "kraftiga snöbyar",
+  95: "åska",
+  96: "åska med hagel",
+  99: "kraftig åska med hagel",
+};
+
+const dayForecastCache = new Map();
+const currentWeatherCache = new Map();
+
+function weatherApiUrl(place, params) {
+  const search = new URLSearchParams({
+    latitude: place.latitude,
+    longitude: place.longitude,
+    timezone: "Europe/Paris",
+    temperature_unit: "celsius",
+    wind_speed_unit: "kmh",
+    precipitation_unit: "mm",
+    ...params,
+  });
+
+  return `https://api.open-meteo.com/v1/forecast?${search.toString()}`;
+}
+
+async function fetchWeatherJson(url) {
+  const response = await fetch(url);
+  const data = await response.json();
+
+  if (!response.ok || data.error) {
+    throw new Error(data.reason || "Väderrapporten kunde inte hämtas.");
+  }
+
+  return data;
+}
+
+function dailyReportFrom(data, date) {
+  const index = data.daily?.time?.indexOf(date) ?? -1;
+  if (index === -1) return null;
+
+  return {
+    code: data.daily.weather_code?.[index],
+    tempMax: data.daily.temperature_2m_max?.[index],
+    tempMin: data.daily.temperature_2m_min?.[index],
+    rainRisk: data.daily.precipitation_probability_max?.[index],
+    windMax: data.daily.wind_speed_10m_max?.[index],
+  };
+}
+
+async function fetchCurrentWeather(placeKey, fallbackReason) {
+  if (!currentWeatherCache.has(placeKey)) {
+    const place = weatherPlaces[placeKey];
+    const url = weatherApiUrl(place, {
+      current: "temperature_2m,weather_code,wind_speed_10m,precipitation",
+      forecast_days: "1",
+    });
+
+    currentWeatherCache.set(
+      placeKey,
+      fetchWeatherJson(url)
+        .then((data) => ({
+          type: "current",
+          place,
+          current: data.current,
+        }))
+        .catch(() => ({
+          type: "error",
+          place,
+        })),
+    );
+  }
+
+  const report = await currentWeatherCache.get(placeKey);
+  return {
+    ...report,
+    fallbackReason,
+  };
+}
+
+async function fetchForecastForStop(placeKey, date) {
+  const cacheKey = `${placeKey}:${date}`;
+
+  if (!dayForecastCache.has(cacheKey)) {
+    dayForecastCache.set(
+      cacheKey,
+      (async () => {
+        const place = weatherPlaces[placeKey];
+        const url = weatherApiUrl(place, {
+          current: "temperature_2m,weather_code,wind_speed_10m,precipitation",
+          daily:
+            "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max",
+          start_date: date,
+          end_date: date,
+        });
+
+        try {
+          const data = await fetchWeatherJson(url);
+          const daily = dailyReportFrom(data, date);
+          if (!daily) {
+            return fetchCurrentWeather(placeKey, "Resedagens prognos är inte släppt ännu.");
+          }
+
+          return {
+            type: "forecast",
+            place,
+            date,
+            current: data.current,
+            daily,
+          };
+        } catch (error) {
+          return fetchCurrentWeather(placeKey, "Resedagens prognos är inte släppt ännu.");
+        }
+      })(),
+    );
+  }
+
+  return dayForecastCache.get(cacheKey);
+}
+
+function describeWeather(code) {
+  return weatherCodeText[code] || "väderdata saknas";
+}
+
+function formatRounded(value, suffix = "") {
+  if (typeof value !== "number" || Number.isNaN(value)) return "okänt";
+  return `${Math.round(value)}${suffix}`;
+}
+
+function formatWeatherTime(value) {
+  if (!value) return "";
+
+  return new Date(value).toLocaleString("sv-SE", {
+    day: "numeric",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
+function renderStopWeather(report) {
+  if (report.type === "forecast") {
+    return `
+      <div class="weather-report">
+        <strong>${report.place.name}</strong>
+        <span>${describeWeather(report.daily.code)} · ${formatRounded(report.daily.tempMin, "°")}–${formatRounded(report.daily.tempMax, "°")}</span>
+        <span>Regnrisk ${formatRounded(report.daily.rainRisk, "%")} · vind upp till ${formatRounded(report.daily.windMax, " km/h")}</span>
+      </div>
+    `;
+  }
+
+  if (report.type === "current") {
+    return `
+      <div class="weather-report muted-report">
+        <strong>${report.place.name} just nu</strong>
+        <span>${describeWeather(report.current?.weather_code)} · ${formatRounded(report.current?.temperature_2m, "°")} · vind ${formatRounded(report.current?.wind_speed_10m, " km/h")}</span>
+        <span>${report.fallbackReason}</span>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="weather-report muted-report">
+      <strong>${report.place.name}</strong>
+      <span>Väderrapporten kunde inte hämtas just nu.</span>
+    </div>
+  `;
+}
+
+async function renderWeather() {
+  const grid = document.querySelector("#weather-grid");
+  const updated = document.querySelector("#weather-updated");
+  if (!grid || !updated) return;
+
+  const dayCards = await Promise.all(
+    weatherDays.map(async (day) => {
+      const reports = await Promise.all(day.stops.map((stop) => fetchForecastForStop(stop, day.date)));
+      const places = day.stops.map((stop) => weatherPlaces[stop].name).join(" + ");
+      const hasForecast = reports.some((report) => report.type === "forecast");
+
+      return `
+        <article class="weather-card${hasForecast ? "" : " pending"}">
+          <div class="weather-date">
+            <time datetime="${day.date}">${day.label}</time>
+            <span>${day.title}</span>
+          </div>
+          <p class="weather-places">${places}</p>
+          <div class="weather-reports">
+            ${reports.map(renderStopWeather).join("")}
+          </div>
+          <p class="weather-note">${day.note}</p>
+        </article>
+      `;
+    }),
+  );
+
+  grid.innerHTML = dayCards.join("");
+
+  const currentReports = await Promise.all(Object.keys(weatherPlaces).map((placeKey) => fetchCurrentWeather(placeKey)));
+  const reportTimes = currentReports
+    .map((report) => report.current?.time)
+    .filter(Boolean)
+    .sort();
+  const latestReportTime = reportTimes.at(-1);
+  const forecastCount = grid.querySelectorAll(".weather-card:not(.pending)").length;
+
+  updated.innerHTML = `
+    <span>${forecastCount ? "Prognos finns för vissa resedagar." : "Resedagsprognoserna är inte släppta än."}</span>
+    <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a>
+    ${latestReportTime ? `<span>Observation uppdaterad ${formatWeatherTime(latestReportTime)}</span>` : ""}
+  `;
+}
+
 function renderImageCards() {
   const grid = document.querySelector("#image-grid");
   grid.innerHTML = imageCards
@@ -106,5 +423,6 @@ function setupTabs() {
 }
 
 renderImageCards();
+renderWeather();
 renderPlan("paris-normandie");
 setupTabs();

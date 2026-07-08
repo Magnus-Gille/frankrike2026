@@ -271,6 +271,122 @@ h3 {
   color: var(--muted);
 }
 
+.weather-section {
+  padding-top: clamp(2rem, 6vw, 4rem);
+}
+
+.weather-board {
+  border: 1px solid rgba(47, 111, 143, 0.22);
+  border-radius: 8px;
+  padding: 1rem;
+  background: #f2f8f8;
+}
+
+.weather-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.weather-meta a {
+  color: var(--blue);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.weather-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-height: 270px;
+  border: 1px solid rgba(47, 111, 143, 0.24);
+  border-radius: 8px;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 8px 28px rgba(23, 33, 43, 0.06);
+}
+
+.weather-card.pending,
+.weather-card.loading {
+  border-color: rgba(183, 131, 40, 0.34);
+  background: #fffaf0;
+}
+
+.weather-date {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.weather-date time {
+  color: var(--blue);
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.weather-date span {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 750;
+  line-height: 1.25;
+  text-align: right;
+}
+
+.weather-places {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.05rem;
+  font-weight: 850;
+  line-height: 1.25;
+}
+
+.weather-reports {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.weather-report {
+  display: grid;
+  gap: 0.2rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.7rem;
+}
+
+.weather-report:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.weather-report strong {
+  font-size: 0.94rem;
+}
+
+.weather-report span,
+.weather-note {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.muted-report strong {
+  color: var(--gold);
+}
+
+.weather-note {
+  margin: auto 0 0;
+}
+
 .image-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -618,6 +734,10 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .weather-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .status-grid,
   .decision-strip {
     grid-template-columns: 1fr;
@@ -653,6 +773,10 @@ h3 {
   }
 
   .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .weather-grid {
     grid-template-columns: 1fr;
   }
 
