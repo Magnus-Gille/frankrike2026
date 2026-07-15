@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Familjepresentation for Frankrikeresan 2-9 augusti 2026: bokade flyg, Parisboende, transfer, Eiffeltornet och Normandieboende."
+      content="Familjepresentation för Frankrikeresan 2-9 augusti 2026: bokningar, resplan, shopping i Paris och Normandie."
     />
     <title>Frankrike 2026 - familjens reseplan</title>
     <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="leaflet.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -17,10 +18,12 @@
         <a class="brand" href="#top">Frankrike 2026</a>
         <div class="nav-links">
           <a href="#bokat">Bokat</a>
+          <a href="#karta">Karta</a>
           <a href="#vader">Väder</a>
           <a href="#boende">Boende</a>
           <a href="#resplan">Resplan</a>
           <a href="#platsval">På plats</a>
+          <a href="#shopping">Shopping</a>
           <a href="#bilder">Referensbilder</a>
         </div>
       </nav>
@@ -34,8 +37,10 @@
           </p>
           <div class="quick-votes" aria-label="Snabbval">
             <a href="#bokat">Bokat</a>
+            <a href="#karta">Karta</a>
             <a href="#boende">Kvar att välja</a>
             <a href="#platsval">Val på plats</a>
+            <a href="#shopping">Shopping</a>
           </div>
         </div>
         <div class="hero-panel" aria-label="Huvudbeslut">
@@ -124,6 +129,49 @@
             <strong>Förslag: 6-7 aug kvällsmarknader</strong>
             <p>6 aug semi-nocturne och 7 aug nattmarknad i Houlgate är förslag. Info kommer; boka hemtransport om ni väljer dem.</p>
           </article>
+        </div>
+      </section>
+
+      <section class="section trip-map-section" id="karta" aria-labelledby="trip-map-title">
+        <div class="section-heading trip-map-heading">
+          <div>
+            <p class="eyebrow">Interaktiv resekarta</p>
+            <h2 id="trip-map-title">Alla ställen på samma karta</h2>
+          </div>
+          <p>
+            Boenden, bokat, transport, shopping, mat, kvällar, stränder och utflyktsförslag.
+            Klicka på en markör för att se varför platsen finns med.
+          </p>
+        </div>
+        <div class="trip-map-panel">
+          <div class="trip-map-toolbar">
+            <div class="trip-map-scopes" role="group" aria-label="Snabbzoom på kartan">
+              <button class="trip-map-scope active" type="button" data-map-scope="all" aria-pressed="true">Hela resan</button>
+              <button class="trip-map-scope" type="button" data-map-scope="paris" aria-pressed="false">Paris</button>
+              <button class="trip-map-scope" type="button" data-map-scope="normandy" aria-pressed="false">Normandie</button>
+            </div>
+            <span class="trip-map-status" id="trip-map-status" aria-live="polite">37 platser · hela resan</span>
+          </div>
+          <div
+            class="trip-map"
+            id="trip-map"
+            role="region"
+            aria-label="Karta över resans boenden, bokningar, transport, shopping, matställen, kvällsaktiviteter, stränder och utflykter"
+          >
+            <p class="trip-map-loading">Laddar karta…</p>
+          </div>
+          <div class="trip-map-legend" aria-label="Kartförklaring">
+            <span><i class="map-key map-key-stay">B</i> Boende</span>
+            <span><i class="map-key map-key-booked">✓</i> Bokat</span>
+            <span><i class="map-key map-key-transport">T</i> Transport</span>
+            <span><i class="map-key map-key-shopping">1</i> Shopping</span>
+            <span><i class="map-key map-key-food">M</i> Mat &amp; kväll</span>
+            <span><i class="map-key map-key-outing">U</i> Utflykt &amp; bad</span>
+          </div>
+          <p class="trip-map-help">Alla markörer visas hela tiden. Snabbknapparna flyttar och zoomar bara kartan.</p>
+          <noscript>
+            <p class="trip-map-fallback">Kartan kräver JavaScript. Alla platser beskrivs också i respektive avsnitt på sidan.</p>
+          </noscript>
         </div>
       </section>
 
@@ -277,6 +325,12 @@
               längs Seine och Bassin de la Villette — barnklubb och badzon vid la Villette.
             </li>
             <li>
+              <strong>Katakomberna:</strong> bäst tisdag 4 augusti eftersom det är stängt på
+              måndagar. Öppet 9:45–20:30, sista insläpp 19:30; biljetter släpps 7 dagar i
+              förväg. Räkna med cirka en timme, 14 °C under jord och 243 trappsteg.
+              <a href="https://www.catacombes.paris.fr/visiter/informations-pratiques" target="_blank" rel="noreferrer">Officiell information</a>.
+            </li>
+            <li>
               <strong>Île Saint-Louis:</strong> lugn kvällspromenad med vy mot Notre-Dames baksida
               från Pont Saint-Louis, och Berthillon-glass (ons–sön) på rue Saint-Louis en l'Île.
             </li>
@@ -289,6 +343,200 @@
               med Transilien R från Gare de Lyon. Hyr kanot och picknicka i skuggan vid gamla bron.
             </li>
           </ul>
+        </div>
+      </section>
+
+      <section class="section shopping-section" id="shopping" aria-labelledby="shopping-title">
+        <div class="section-heading shopping-heading">
+          <div>
+            <p class="eyebrow">Paris 2-5 augusti</p>
+            <h2 id="shopping-title">Shopping, person för person</h2>
+          </div>
+          <p>
+            Var och en har sin egen lista. Magnus tre stopp är valda för japansk workwear och
+            luftiga, vida byxor utan 45R-priser; de andra önskelistorna fylls på när de är klara.
+          </p>
+        </div>
+
+        <nav class="shopping-person-nav" aria-label="Personliga shoppinglistor">
+          <a href="#shopping-magnus">Magnus</a>
+          <a href="#shopping-sara">Sara</a>
+          <a href="#shopping-alice">Alice</a>
+          <a href="#shopping-estrid">Estrid</a>
+          <a href="#karta">Resekarta</a>
+        </nav>
+
+        <article
+          class="shopping-person shopping-person-featured"
+          id="shopping-magnus"
+          aria-labelledby="shopping-magnus-title"
+        >
+          <header class="shopping-person-header">
+            <div>
+              <p class="eyebrow">Magnus</p>
+              <h3 id="shopping-magnus-title">Japansk workwear och vida 7/8-byxor</h3>
+            </div>
+            <span class="shopping-status">3 stopp klara</span>
+          </header>
+          <p class="shopping-brief">
+            Sökprofil: hög rörelsefrihet, vid eller lös avsmalnande silhuett, ungefär ankellång,
+            gärna elastisk midja och tvättad bomull eller linne. Kapital, NAPRON och Sassafras är
+            riktmärken för känslan — inte krav på etiketten.
+          </p>
+
+          <aside class="shopping-route" aria-label="Rekommenderad butikstur">
+            <div class="shopping-route-intro">
+              <span>Smidigast med era datum</span>
+              <strong>Två korta shoppingpass</strong>
+            </div>
+            <div>
+              <strong>Måndag 3 augusti</strong>
+              <p>Royalcheese från 11:00 → Gaijin senast 19:30, båda i Marais.</p>
+            </div>
+            <div>
+              <strong>Tisdag 4 augusti</strong>
+              <p>Jinji 11:00–19:30 i Saint-Germain. Lägg inte detta på avresedagen.</p>
+            </div>
+          </aside>
+
+          <div class="shop-list">
+            <article class="shop-card">
+              <div class="shop-card-heading">
+                <span class="shop-rank" aria-label="Stopp 1">1</span>
+                <div>
+                  <h4>Jinji</h4>
+                  <p class="shop-address">22 rue des Canettes · 6:e</p>
+                </div>
+              </div>
+              <div class="shop-hours">
+                <span>Planerat besök</span>
+                <strong>Tis 4 aug · 11:00–19:30</strong>
+                <small>3–5 aug: 11:00–19:30. Söndag 2 aug har motstridiga uppgifter — undvik.</small>
+              </div>
+              <div class="shop-price">
+                <span>Rimligt mål</span>
+                <strong>ca 1 800–2 650 kr</strong>
+              </div>
+              <p>
+                Bästa märkesmatchningen. Börja med Beams Plus och Jinji Brand; fråga efter
+                loose tapered, easy pants eller cropped. OrSlow och Kapital finns i rätt värld
+                men går ofta över målpriset.
+              </p>
+              <div class="shop-tags" aria-label="Märken och stilord">
+                <span>Beams Plus</span>
+                <span>Jinji Brand</span>
+                <span>Easy pants</span>
+              </div>
+              <a class="shop-link" href="https://jinji.fr/collections/pantalons" target="_blank" rel="noreferrer">
+                Se Jinji byxor <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article class="shop-card shop-card-value">
+              <div class="shop-card-heading">
+                <span class="shop-rank" aria-label="Stopp 2">2</span>
+                <div>
+                  <h4>Royalcheese</h4>
+                  <p class="shop-address">113 rue de Turenne · 3:e</p>
+                </div>
+              </div>
+              <div class="shop-hours">
+                <span>Planerat besök</span>
+                <strong>Mån 3 aug · 11:00–20:00</strong>
+                <small>Sön 2 aug: 14:00–19:00. Mån 3–ons 5 aug: 11:00–20:00.</small>
+              </div>
+              <div class="shop-price">
+                <span>Bäst pris</span>
+                <strong>ca 825–1 450 kr</strong>
+              </div>
+              <p>
+                Mest sannolika budgetträffen och nära boendet. Leta efter Cookman eller Service
+                Works chef pants och Gramicci Loose Tapered — arbetsbyxkänsla, generös form och
+                priser långt under 45R.
+              </p>
+              <div class="shop-tags" aria-label="Märken och stilord">
+                <span>Cookman</span>
+                <span>Service Works</span>
+                <span>Gramicci</span>
+              </div>
+              <a class="shop-link" href="https://www.royalcheese.com/en/" target="_blank" rel="noreferrer">
+                Se Royalcheese <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article class="shop-card">
+              <div class="shop-card-heading">
+                <span class="shop-rank" aria-label="Stopp 3">3</span>
+                <div>
+                  <h4>Gaijin Paris</h4>
+                  <p class="shop-address">20 rue du Pont aux Choux · 3:e</p>
+                </div>
+              </div>
+              <div class="shop-hours">
+                <span>Planerat besök</span>
+                <strong>Mån 3 aug · 11:00–19:30</strong>
+                <small>Publicerad tid sön 2–ons 5 aug: 11:00–19:30.</small>
+              </div>
+              <div class="shop-price">
+                <span>Vintagefynd</span>
+                <strong>oftast ca 2 200–3 850 kr</strong>
+              </div>
+              <p>
+                Japansk designer-secondhand med störst chans till något oväntat. Dyrare än
+                Royalcheese men roligare fyndpotential; lagret är ett lotteri, så prova hellre än
+                att jaga ett särskilt märke.
+              </p>
+              <div class="shop-tags" aria-label="Märken och stilord">
+                <span>Secondhand</span>
+                <span>Japanska designers</span>
+                <span>Unika plagg</span>
+              </div>
+              <a class="shop-link" href="https://gaijinparis.com/en/" target="_blank" rel="noreferrer">
+                Se Gaijin Paris <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+          </div>
+
+          <aside class="shopping-note">
+            <div>
+              <span>Prisregel</span>
+              <strong>45R är bortvalt — cirka 9 000 kr för ett par byxor är inte aktuellt.</strong>
+            </div>
+            <p>
+              Priser och ordinarie öppettider kontrollerade 15 juli 2026; priser avrundade med
+              1 € ≈ 11 kr. Särskilt augustistängt för 2026 är ännu inte publicerat — kontrollera
+              öppet och lager direkt med butikerna i slutet av juli.
+            </p>
+          </aside>
+        </article>
+
+        <div class="shopping-placeholder-grid">
+          <article class="shopping-person shopping-person-placeholder" id="shopping-sara" aria-labelledby="shopping-sara-title">
+            <div class="shopping-placeholder-top">
+              <p class="eyebrow">Sara</p>
+              <span class="shopping-status shopping-status-open">Önskelista öppen</span>
+            </div>
+            <h3 id="shopping-sara-title">Saras shopping</h3>
+            <p>Butiker, plagg och presenter läggs här när önskemålen är klara.</p>
+          </article>
+
+          <article class="shopping-person shopping-person-placeholder" id="shopping-alice" aria-labelledby="shopping-alice-title">
+            <div class="shopping-placeholder-top">
+              <p class="eyebrow">Alice</p>
+              <span class="shopping-status shopping-status-open">Önskelista öppen</span>
+            </div>
+            <h3 id="shopping-alice-title">Alices shopping</h3>
+            <p>Butiker, plagg och presenter läggs här när önskemålen är klara.</p>
+          </article>
+
+          <article class="shopping-person shopping-person-placeholder" id="shopping-estrid" aria-labelledby="shopping-estrid-title">
+            <div class="shopping-placeholder-top">
+              <p class="eyebrow">Estrid</p>
+              <span class="shopping-status shopping-status-open">Önskelista öppen</span>
+            </div>
+            <h3 id="shopping-estrid-title">Estrids shopping</h3>
+            <p>Butiker, plagg och presenter läggs här när önskemålen är klara.</p>
+          </article>
         </div>
       </section>
 
@@ -545,6 +793,7 @@
       </p>
     </footer>
 
+    <script src="leaflet.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

@@ -31,7 +31,7 @@ const plans = {
     [
       "4 aug",
       "Parisval på plats",
-      "Barnens önskemål: Notre-Dame på morgonen innan värmen. Blir det för hett mitt på dagen: skugga i Jardin du Luxembourg, Paris Plages vid Seine eller dagsutflykt till Moret-sur-Loing. På kvällen: Eiffeltornets glittershow varje hel timme efter mörkrets inbrott.",
+      "Barnens önskemål: Notre-Dame på morgonen innan värmen. Nytt utflyktsförslag: Katakomberna, som passar tisdag 4 augusti eftersom måndagar är stängt; boka tidsbiljett när de släpps 7 dagar i förväg. Blir det för hett mitt på dagen: skugga i Jardin du Luxembourg, Paris Plages vid Seine eller dagsutflykt till Moret-sur-Loing. På kvällen: Eiffeltornets glittershow varje hel timme efter mörkrets inbrott.",
     ],
     [
       "5 aug",
@@ -160,6 +160,356 @@ const weatherCodeText = {
 
 const dayForecastCache = new Map();
 const currentWeatherCache = new Map();
+
+const tripMapCategories = {
+  stay: { label: "Boende", marker: "B" },
+  booked: { label: "Bokat", marker: "✓" },
+  transport: { label: "Transport", marker: "T" },
+  shopping: { label: "Shopping", marker: "S" },
+  food: { label: "Mat & kväll", marker: "M" },
+  outing: { label: "Utflykt & bad", marker: "U" },
+};
+
+const tripMapPlaces = [
+  {
+    name: "Paris Charles de Gaulle (CDG)",
+    category: "transport",
+    scope: "route",
+    meta: "Flygplats · bokad ut- och hemresa",
+    detail: "Ankomst 2 augusti 10:05 med bokad taxi. Hemflyg 9 augusti 20:50.",
+    latitude: 49.0068908,
+    longitude: 2.571082,
+  },
+  {
+    name: "Hämta bil · SIXT Neuilly–Porte Maillot",
+    category: "transport",
+    scope: "paris",
+    meta: "28 avenue Charles de Gaulle · ons 5 aug 07:00–19:00",
+    detail: "Planerad envägshyra till CDG, ännu inte bokad. Sikta på hämtning 16:30–17:00 efter Eiffeltornet. Ordinarie öppettider: mån–fre 07:00–19:00, lör 08:00–16:00, sön 09:00–17:00 och helgdag 09:00–13:00; SIXT anger även hämtning och återlämning dygnet runt.",
+    latitude: 48.8795433,
+    longitude: 2.2781889,
+  },
+  {
+    name: "208 Suite Guerlain",
+    category: "stay",
+    scope: "paris",
+    meta: "15 rue Sainte-Croix de la Bretonnerie",
+    detail: "Bokat Parisboende 2–5 augusti i Marais. Incheckning 16–23, utcheckning senast 11.",
+    latitude: 48.8581216,
+    longitude: 2.3563572,
+  },
+  {
+    name: "Eiffeltornet",
+    category: "booked",
+    scope: "paris",
+    meta: "5 augusti · 12:30",
+    detail: "Bokat för fyra personer till toppen med hiss.",
+    latitude: 48.8582599,
+    longitude: 2.2945006,
+  },
+  {
+    name: "Notre-Dame",
+    category: "outing",
+    scope: "paris",
+    meta: "Barnens Parisönskemål",
+    detail: "Förslag på morgonen före dagens värme och större folkmängder.",
+    latitude: 48.8529371,
+    longitude: 2.3500501,
+  },
+  {
+    name: "Jardin du Luxembourg",
+    category: "outing",
+    scope: "paris",
+    meta: "Sval paus i Paris",
+    detail: "Skuggigt reservstopp om värmen blir för tung mitt på dagen.",
+    latitude: 48.8467228,
+    longitude: 2.3364148,
+  },
+  {
+    name: "Katakomberna i Paris",
+    category: "outing",
+    scope: "paris",
+    meta: "1 avenue du Colonel Henri Rol-Tanguy · tis 4 aug",
+    detail: "Förslag på cirka en timmes besök. Öppet 9:45–20:30, sista insläpp 19:30; boka tidsbiljett 7 dagar i förväg. Ta med något varmt: 14 °C under jord och 243 trappsteg.",
+    latitude: 48.8337439,
+    longitude: 2.3322925,
+  },
+  {
+    name: "Trocadéro",
+    category: "outing",
+    scope: "paris",
+    meta: "Kvällsvy mot Eiffeltornet",
+    detail: "Ett av två gratislägen på sidan för att se glittershowen efter mörkrets inbrott.",
+    latitude: 48.8620535,
+    longitude: 2.2886173,
+  },
+  {
+    name: "Champ de Mars",
+    category: "outing",
+    scope: "paris",
+    meta: "Kvällsvy vid Eiffeltornet",
+    detail: "Det andra föreslagna läget för glittershowen, nära tornet.",
+    latitude: 48.8561447,
+    longitude: 2.2978204,
+  },
+  {
+    name: "Vedettes du Pont Neuf",
+    category: "food",
+    scope: "paris",
+    meta: "Place du Pont-Neuf",
+    detail: "Förslag på prisvärd Seine-kryssning på kvällen.",
+    latitude: 48.8574208,
+    longitude: 2.3409595,
+  },
+  {
+    name: "Paris Plages · Rives de Seine",
+    category: "outing",
+    scope: "paris",
+    meta: "Vid Pont d'Arcole / Hôtel de Ville",
+    detail: "Centralt riktmärke för Paris Plages längs Seine, öppet under resan.",
+    latitude: 48.8554806,
+    longitude: 2.3505655,
+  },
+  {
+    name: "Paris Plages · Bassin de la Villette",
+    category: "outing",
+    scope: "paris",
+    meta: "Badzon och familjeaktiviteter",
+    detail: "Det andra utpekade Paris Plages-stoppet, med bad och barnaktiviteter.",
+    latitude: 48.883966,
+    longitude: 2.3693023,
+  },
+  {
+    name: "Berthillon",
+    category: "food",
+    scope: "paris",
+    meta: "31 rue Saint-Louis en l'Île",
+    detail: "Glassförslag onsdag–söndag, enkelt att kombinera med kvällspromenad på Île Saint-Louis.",
+    latitude: 48.8517084,
+    longitude: 2.356718,
+  },
+  {
+    name: "Parc de la Villette",
+    category: "outing",
+    scope: "paris",
+    meta: "Förslag: utomhusbio",
+    detail: "Gratis sommarbio, men stängd måndag och tisdag enligt sidans kontroll.",
+    latitude: 48.8948898,
+    longitude: 2.3884384,
+  },
+  {
+    name: "Moret-sur-Loing · gamla bron",
+    category: "outing",
+    scope: "route",
+    meta: "Värmeflykt från Paris",
+    detail: "Medeltida småstad, picknick och möjlig kanot cirka 45–50 minuter från Gare de Lyon.",
+    latitude: 48.3600421,
+    longitude: 2.8164748,
+  },
+  {
+    name: "Jinji",
+    category: "shopping",
+    marker: "1",
+    scope: "paris",
+    meta: "22 rue des Canettes · tis 4 aug 11:00–19:30",
+    detail: "Förstavalet för japansk workwear, easy pants och vida 7/8-silhuetter.",
+    latitude: 48.8517104,
+    longitude: 2.3336947,
+  },
+  {
+    name: "Royalcheese",
+    category: "shopping",
+    marker: "2",
+    scope: "paris",
+    meta: "113 rue de Turenne · mån 3 aug 11:00–20:00",
+    detail: "Bästa budgetstoppet för Cookman, Service Works och Gramicci.",
+    latitude: 48.8629065,
+    longitude: 2.3645274,
+    markerOffset: 10,
+  },
+  {
+    name: "Gaijin Paris",
+    category: "shopping",
+    marker: "3",
+    scope: "paris",
+    meta: "20 rue du Pont aux Choux · mån 3 aug 11:00–19:30",
+    detail: "Japansk designer-secondhand med högre pris men rolig fyndpotential.",
+    latitude: 48.8613177,
+    longitude: 2.364963,
+    markerOffset: -10,
+  },
+  {
+    name: "You Hotel Deauville",
+    category: "stay",
+    scope: "normandy",
+    meta: "1 rue Désiré Le Hoc",
+    detail: "Bokat familjerum 5–9 augusti. Incheckning från 15, utcheckning senast 12.",
+    latitude: 49.359789,
+    longitude: 0.080122,
+  },
+  {
+    name: "Gare de Trouville–Deauville",
+    category: "transport",
+    scope: "normandy",
+    meta: "Möjlig tågankomst och hyrbilshämtning",
+    detail: "Praktiskt riktmärke för beslutet Paris → Deauville den 5 augusti.",
+    latitude: 49.3596984,
+    longitude: 0.0838375,
+  },
+  {
+    name: "Place Morny · Deauville centrum",
+    category: "food",
+    scope: "normandy",
+    meta: "Restauranger och enkel kväll nära hotellet",
+    detail: "Bra riktmärke för middag och kväll utan extra transport från basen.",
+    latitude: 49.3596225,
+    longitude: 0.0775011,
+  },
+  {
+    name: "Les Planches · Deauville",
+    category: "outing",
+    scope: "normandy",
+    meta: "Strand och träpromenad",
+    detail: "Bred sandstrand och strandklubbar; ett enkelt badval nära hotellet.",
+    latitude: 49.3593879,
+    longitude: 0.0728154,
+  },
+  {
+    name: "Trouville strand",
+    category: "outing",
+    scope: "normandy",
+    meta: "Bad och strandnära kväll",
+    detail: "Alternativ till Deauville med restauranger och sommarprogram i närheten.",
+    latitude: 49.3669812,
+    longitude: 0.0789966,
+  },
+  {
+    name: "Paléospace",
+    category: "outing",
+    scope: "normandy",
+    meta: "Avenue Jean Moulin, Villers-sur-Mer",
+    detail: "Dinosaurie- och fossilspår nära stranden; kan kombineras med klippturen.",
+    latitude: 49.3278578,
+    longitude: 0.0133596,
+  },
+  {
+    name: "Villers-sur-Mer · bokad klipptur",
+    category: "booked",
+    scope: "normandy",
+    meta: "6 augusti · 10:15",
+    detail: "Guidad tur till Falaises des Vaches Noires. Markören visar Villers; kontrollera exakt mötesplats i biljett-PDF:en.",
+    latitude: 49.322,
+    longitude: 0.001,
+  },
+  {
+    name: "Falaises des Vaches Noires",
+    category: "outing",
+    scope: "normandy",
+    meta: "Fossilområde mellan Villers och Houlgate",
+    detail: "Klippor och fossilspaning; lågvatten, guidning och säkerhetskoll styr besöket.",
+    latitude: 49.3174053,
+    longitude: -0.0258823,
+  },
+  {
+    name: "Houlgate strand",
+    category: "outing",
+    scope: "normandy",
+    meta: "Bad, restauranggator och möjlig nattmarknad",
+    detail: "Föreslaget stopp fredag 7 augusti; bekräfta marknad och hemtransport först.",
+    latitude: 49.30238,
+    longitude: -0.0822755,
+  },
+  {
+    name: "Place du Marché · Cabourg",
+    category: "food",
+    scope: "normandy",
+    meta: "Fredagsmarknad 18–23",
+    detail: "Kvällsmarknad, mat och semesterkänsla; fungerar bra med middag i Cabourg.",
+    latitude: 49.2891859,
+    longitude: -0.1143081,
+  },
+  {
+    name: "Parc de l'Aquilon",
+    category: "outing",
+    scope: "normandy",
+    meta: "Cabourg · Guignol kl 18",
+    detail: "Dockteaterförslag för barnen, varje dag enligt sidans underlag.",
+    latitude: 49.2884428,
+    longitude: -0.1246932,
+  },
+  {
+    name: "Port Guillaume · Dives-sur-Mer",
+    category: "food",
+    scope: "normandy",
+    meta: "Hamn, glass och restaurangkväll",
+    detail: "Kort kvällsutflykt som passar ihop med Cabourg eller Houlgate.",
+    latitude: 49.2938073,
+    longitude: -0.0975326,
+  },
+  {
+    name: "Beuvron-en-Auge",
+    category: "outing",
+    scope: "normandy",
+    meta: "Halvdagsutflykt",
+    detail: "Bymiljö, glass och en kort roadtrip i normandisk landsbygd.",
+    latitude: 49.1878748,
+    longitude: -0.0460321,
+  },
+  {
+    name: "Cambremer · Route du Cidre",
+    category: "outing",
+    scope: "normandy",
+    meta: "Startpunkt för ciderrundan",
+    detail: "Kan kombineras med Beuvron-en-Auge som en lugn halvdag med bil.",
+    latitude: 49.1517477,
+    longitude: 0.0479889,
+  },
+  {
+    name: "Poterie du Mesnil de Bavent",
+    category: "outing",
+    scope: "normandy",
+    meta: "5 Côte du Mesnil, Bavent",
+    detail: "Hantverksstopp som passar om vädret blir sämre.",
+    latitude: 49.226075,
+    longitude: -0.218728,
+  },
+  {
+    name: "Mémorial Pegasus",
+    category: "outing",
+    scope: "normandy",
+    meta: "D-Day-förslag nära kusten",
+    detail: "Historia i hanterbar dos och nära nog att kombinera med Batterie de Merville.",
+    latitude: 49.2426319,
+    longitude: -0.2714385,
+  },
+  {
+    name: "Batterie de Merville",
+    category: "outing",
+    scope: "normandy",
+    meta: "D-Day-förslag",
+    detail: "Ett närmare historiskt heldagsalternativ än Omaha och Bayeux.",
+    latitude: 49.2707827,
+    longitude: -0.1961101,
+  },
+  {
+    name: "Vieux Bassin · Honfleur",
+    category: "outing",
+    scope: "normandy",
+    meta: "Heldagsförslag",
+    detail: "Vykortshamn och promenad. Åk tidigt för att minska kö och parkeringsstrul.",
+    latitude: 49.4201773,
+    longitude: 0.2331522,
+  },
+  {
+    name: "Festyland",
+    category: "outing",
+    scope: "normandy",
+    meta: "Nöjesparksförslag nära Caen",
+    detail: "Barnens heldagsalternativ om ni vill bryta av strand och historia.",
+    latitude: 49.1863588,
+    longitude: -0.4303514,
+  },
+];
 
 function weatherApiUrl(place, params) {
   const search = new URLSearchParams({
@@ -422,7 +772,99 @@ function setupTabs() {
   });
 }
 
+function setupTripMap() {
+  const mapElement = document.querySelector("#trip-map");
+  if (!mapElement) return;
+
+  if (typeof L === "undefined") {
+    mapElement.innerHTML = '<p class="trip-map-fallback">Kartan kunde inte laddas. Platserna beskrivs i respektive avsnitt på sidan.</p>';
+    return;
+  }
+
+  mapElement.innerHTML = "";
+  const map = L.map(mapElement, {
+    scrollWheelZoom: false,
+    zoomControl: false,
+  });
+
+  L.control.zoom({ position: "topright" }).addTo(map);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    maxZoom: 19,
+  }).addTo(map);
+
+  tripMapPlaces.forEach((place) => {
+    const category = tripMapCategories[place.category];
+    const markerText = place.marker || category.marker;
+    const markerIcon = L.divIcon({
+      className: "",
+      html: `<div class="trip-map-marker category-${place.category}"><span>${markerText}</span></div>`,
+      iconAnchor: [13 + (place.markerOffset || 0), 26],
+      iconSize: [26, 26],
+      popupAnchor: [0, -24],
+    });
+
+    L.marker([place.latitude, place.longitude], {
+      icon: markerIcon,
+      title: place.name,
+    })
+      .addTo(map)
+      .bindPopup(`
+        <small>${category.label}</small>
+        <strong>${place.name}</strong>
+        <span>${place.meta}</span>
+        <p>${place.detail}</p>
+        <a href="https://www.openstreetmap.org/?mlat=${place.latitude}&mlon=${place.longitude}#map=17/${place.latitude}/${place.longitude}" target="_blank" rel="noreferrer">Öppna i OpenStreetMap ↗</a>
+      `)
+      .bindTooltip(place.name, {
+        direction: "top",
+        offset: [0, -22],
+        opacity: 0.92,
+      });
+  });
+
+  const status = document.querySelector("#trip-map-status");
+  const scopeButtons = document.querySelectorAll("[data-map-scope]");
+  const scopeNames = {
+    all: "hela resan",
+    paris: "Paris",
+    normandy: "Normandie",
+  };
+
+  function fitMapScope(scope) {
+    const places = scope === "all" ? tripMapPlaces : tripMapPlaces.filter((place) => place.scope === scope);
+    const bounds = places.map((place) => [place.latitude, place.longitude]);
+
+    map.closePopup();
+    map.fitBounds(bounds, {
+      padding: [42, 42],
+      maxZoom: scope === "paris" ? 13 : scope === "normandy" ? 10 : 8,
+    });
+
+    scopeButtons.forEach((button) => {
+      const isActive = button.dataset.mapScope === scope;
+      button.classList.toggle("active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+
+    if (status) {
+      status.textContent =
+        scope === "all"
+          ? `${tripMapPlaces.length} platser · hela resan`
+          : `${places.length} platser i ${scopeNames[scope]} · alla markörer kvar`;
+    }
+  }
+
+  scopeButtons.forEach((button) => {
+    button.addEventListener("click", () => fitMapScope(button.dataset.mapScope));
+  });
+
+  fitMapScope("all");
+  window.requestAnimationFrame(() => map.invalidateSize());
+}
+
 renderImageCards();
 renderWeather();
 renderPlan("paris-normandie");
 setupTabs();
+setupTripMap();

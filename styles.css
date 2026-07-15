@@ -562,6 +562,537 @@ h3 {
   padding-top: 1.25rem;
 }
 
+.shopping-section {
+  scroll-margin-top: 1rem;
+}
+
+.shopping-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: clamp(1.25rem, 4vw, 3rem);
+  align-items: end;
+  max-width: none;
+}
+
+.shopping-heading p:last-child {
+  margin: 0;
+}
+
+.shopping-person-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.shopping-person-nav a {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.55rem 0.85rem;
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.shopping-person-nav a:first-child {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: #fff;
+}
+
+.shopping-person {
+  scroll-margin-top: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: clamp(1.2rem, 4vw, 2rem);
+  background: var(--surface);
+  box-shadow: 0 8px 28px rgba(23, 33, 43, 0.07);
+}
+
+.shopping-person-featured {
+  border-color: rgba(47, 111, 143, 0.35);
+  background: linear-gradient(180deg, #f5fafb 0, #fff 52%);
+}
+
+.shopping-person-header,
+.shopping-placeholder-top {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.shopping-person-header h3 {
+  max-width: 19ch;
+}
+
+.shopping-status {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  padding: 0.5rem 0.75rem;
+  background: #dfeff3;
+  color: #245a75;
+  font-size: 0.76rem;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.shopping-status-open {
+  background: #f7f1e5;
+  color: #8a641f;
+}
+
+.shopping-brief {
+  max-width: 820px;
+  margin: 1rem 0 1.5rem;
+  color: var(--muted);
+}
+
+.shopping-route {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.65fr) repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(47, 111, 143, 0.26);
+  border-radius: 10px;
+  padding: 1rem;
+  background: #eaf4f6;
+}
+
+.shopping-route > div:not(:first-child) {
+  border-left: 1px solid rgba(47, 111, 143, 0.2);
+  padding-left: 1rem;
+}
+
+.shopping-route span,
+.shop-hours span {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--blue);
+  font-size: 0.72rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.shopping-route strong {
+  line-height: 1.25;
+}
+
+.shopping-route p {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.trip-map-section {
+  scroll-margin-top: 1rem;
+}
+
+.trip-map-heading {
+  display: flex;
+  gap: 2rem;
+  align-items: end;
+  justify-content: space-between;
+  max-width: none;
+}
+
+.trip-map-heading > p {
+  max-width: 500px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.trip-map-panel {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1rem;
+  background: #fff;
+}
+
+.trip-map-toolbar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.trip-map-scopes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.trip-map-scope {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.55rem 0.85rem;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.trip-map-scope:hover,
+.trip-map-scope:focus-visible {
+  border-color: var(--blue);
+}
+
+.trip-map-scope.active {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: #fff;
+}
+
+.trip-map-status {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 750;
+  text-align: right;
+}
+
+.trip-map {
+  z-index: 0;
+  width: 100%;
+  height: 560px;
+  overflow: hidden;
+  border: 1px solid rgba(47, 111, 143, 0.24);
+  border-radius: 8px;
+  background: #e9efed;
+}
+
+.trip-map-loading,
+.trip-map-fallback {
+  margin: 0;
+  padding: 1rem;
+  color: var(--muted);
+}
+
+.trip-map .leaflet-control-zoom a {
+  color: var(--ink);
+}
+
+.trip-map .leaflet-popup-content-wrapper {
+  border-radius: 8px;
+}
+
+.trip-map .leaflet-popup-content {
+  margin: 0.85rem 1rem;
+  font-family: inherit;
+  line-height: 1.45;
+}
+
+.trip-map .leaflet-popup-content small,
+.trip-map .leaflet-popup-content strong,
+.trip-map .leaflet-popup-content span {
+  display: block;
+}
+
+.trip-map .leaflet-popup-content small {
+  margin-bottom: 0.2rem;
+  color: var(--blue);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.trip-map .leaflet-popup-content span {
+  margin-top: 0.15rem;
+  color: var(--muted);
+}
+
+.trip-map .leaflet-popup-content p {
+  margin: 0.45rem 0 0;
+}
+
+.trip-map .leaflet-popup-content a {
+  display: inline-block;
+  margin-top: 0.55rem;
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.trip-map .leaflet-tooltip {
+  border: 0;
+  border-radius: 6px;
+  background: var(--ink);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(23, 33, 43, 0.2);
+  font-family: inherit;
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.trip-map-marker {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  border: 2px solid #fff;
+  border-radius: 50% 50% 50% 0;
+  place-items: center;
+  transform: rotate(-45deg);
+  background: var(--ink);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(23, 33, 43, 0.32);
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+
+.trip-map-marker span {
+  transform: rotate(45deg);
+}
+
+.trip-map-marker.category-stay {
+  background: var(--rose);
+}
+
+.trip-map-marker.category-booked {
+  background: var(--green);
+}
+
+.trip-map-marker.category-transport {
+  background: #66727c;
+}
+
+.trip-map-marker.category-food {
+  background: #a56a12;
+}
+
+.trip-map-marker.category-outing {
+  background: var(--blue);
+}
+
+.trip-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1rem;
+  margin-top: 0.9rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.trip-map-legend > span {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.map-key {
+  display: inline-grid;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 50%;
+  place-items: center;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.map-key-stay {
+  background: var(--rose);
+}
+
+.map-key-booked {
+  background: var(--green);
+}
+
+.map-key-transport {
+  background: #66727c;
+}
+
+.map-key-food {
+  background: #a56a12;
+}
+
+.map-key-outing {
+  background: var(--blue);
+}
+
+.trip-map-help {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.shop-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.shop-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.1rem;
+  background: #fff;
+}
+
+.shop-card-value {
+  border-color: rgba(77, 124, 89, 0.42);
+  background: #f7fbf7;
+}
+
+.shop-card-heading {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.shop-rank {
+  display: grid;
+  flex: 0 0 2rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  place-items: center;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 900;
+}
+
+.shop-card h4 {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.1;
+}
+
+.shop-address {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.shop-hours {
+  margin-top: 1rem;
+  border-radius: 8px;
+  padding: 0.75rem;
+  background: #edf6f7;
+}
+
+.shop-hours strong,
+.shop-hours small {
+  display: block;
+}
+
+.shop-hours strong {
+  line-height: 1.25;
+}
+
+.shop-hours small {
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.shop-card > p {
+  color: var(--muted);
+}
+
+.shop-price {
+  margin-top: 1rem;
+  border-left: 3px solid var(--gold);
+  padding-left: 0.7rem;
+}
+
+.shop-price span {
+  display: block;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.shop-price strong {
+  display: block;
+  margin-top: 0.1rem;
+  line-height: 1.25;
+}
+
+.shop-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: auto 0 1rem;
+  padding-top: 0.4rem;
+}
+
+.shop-tags span {
+  border-radius: 999px;
+  padding: 0.3rem 0.55rem;
+  background: #eef3f3;
+  color: #42505b;
+  font-size: 0.74rem;
+  font-weight: 750;
+}
+
+.shop-link {
+  align-self: flex-start;
+  color: var(--blue);
+  font-weight: 850;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25rem;
+}
+
+.shopping-note {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
+  gap: 1rem;
+  margin-top: 1rem;
+  border-radius: 10px;
+  padding: 1rem;
+  background: var(--ink);
+  color: #fff;
+}
+
+.shopping-note span {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #ffd58a;
+  font-size: 0.72rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.shopping-note p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.86rem;
+}
+
+.shopping-placeholder-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.shopping-person-placeholder {
+  min-height: 190px;
+  box-shadow: none;
+}
+
+.shopping-person-placeholder h3 {
+  margin-top: 2rem;
+  font-size: 1.45rem;
+}
+
+.shopping-person-placeholder > p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
 .likes {
   border-color: var(--green);
 }
@@ -744,8 +1275,37 @@ h3 {
   }
 
   .stay-grid,
-  .trip-grid {
+  .trip-grid,
+  .shop-list,
+  .shopping-placeholder-grid {
     grid-template-columns: 1fr;
+  }
+
+  .shopping-heading,
+  .shopping-note,
+  .shopping-route {
+    grid-template-columns: 1fr;
+  }
+
+  .shopping-route > div:not(:first-child) {
+    border-top: 1px solid rgba(47, 111, 143, 0.2);
+    border-left: 0;
+    padding-top: 1rem;
+    padding-left: 0;
+  }
+
+  .trip-map-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .trip-map-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .trip-map-status {
+    text-align: left;
   }
 }
 
@@ -782,5 +1342,19 @@ h3 {
 
   .timeline li {
     grid-template-columns: 1fr;
+  }
+
+  .shopping-person-header,
+  .shopping-placeholder-top {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .shopping-person-placeholder h3 {
+    margin-top: 1rem;
+  }
+
+  .trip-map {
+    height: 420px;
   }
 }
