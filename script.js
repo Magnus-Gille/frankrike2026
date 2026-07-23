@@ -35,13 +35,13 @@ const plans = {
     ],
     [
       "5 aug",
-      "Bokat: Eiffeltornet + Deauville",
-      "Utcheckning i Paris senast 11. Eiffeltornet, toppen med hiss, 12:30 för 4 personer (101 €). Därefter vidare till You Hotel Deauville, där incheckning är från 15. Lås transport: tåg, hyrbil från Paris/CDG eller hyrbil i Deauville.",
+      "Bokat: Eiffeltornet + hyrbil till Deauville",
+      "Utcheckning i Paris senast 11. Eiffeltornet, toppen med hiss, 12:30 för 4 personer (101 €). Lös bagaget i förväg och sikta på Alamo Ternes, 38 avenue des Ternes, senast 16:45. Bilen hämtas 17:00 och stationen stänger 18:00. Kör därefter till You Hotel Deauville.",
     ],
     ["6 aug", "Bokat: Paléospace + valfri kväll", "Guidad tur vid Falaises des Vaches Noires är bokad med start i Villers-sur-Mer kl 10:15. 4 biljetter finns som PDF, totalt 35,60 €. Kombinera med strand om tidvatten och energi passar. Kväll: semi-nocturne-marknad när info kommer; boka taxi hem till Deauville om ni väljer den."],
     ["7 aug", "Förslag: strand + Houlgate nattmarknad", "Houlgate, Villers eller Cabourg efter väder. Förslag för fredag kväll: nattmarknad i Houlgate, info kommer via e-post. Boka taxi eller annan hemtransport till Deauville om ni väljer den."],
     ["8 aug", "Val på plats: barnens dag", "Bad, glass, marknad eller kort utflykt. Håll dagen enkel inför hemresan."],
-    ["9 aug", "Bokat: hemresa", "Utcheckning från You Hotel Deauville senast 12. SAS direkt Paris CDG till Stockholm Arlanda (ARN). Avgång 20:50, ankomst 23:20. Håll god marginal från Normandie till CDG."],
+    ["9 aug", "Bokat: bilretur + hemresa", "Utcheckning från You Hotel Deauville senast 12. Lämna Alamo-bilen vid CDG Terminal 2D kl 17:30 och följ sedan avgångsterminalen på SAS boardingkort. SAS direkt till Stockholm Arlanda avgår 20:50 och ankommer 23:20; returtiden ger 3 timmar 20 minuter till avgång."],
   ],
 };
 
@@ -181,13 +181,13 @@ const tripMapPlaces = [
     longitude: 2.571082,
   },
   {
-    name: "Hämta bil · SIXT Neuilly–Porte Maillot",
-    category: "transport",
+    name: "Hämta bil · Alamo Paris Ternes",
+    category: "booked",
     scope: "paris",
-    meta: "28 avenue Charles de Gaulle · ons 5 aug 07:00–19:00",
-    detail: "Planerad envägshyra till CDG, ännu inte bokad. Sikta på hämtning 16:30–17:00 efter Eiffeltornet. Ordinarie öppettider: mån–fre 07:00–19:00, lör 08:00–16:00, sön 09:00–17:00 och helgdag 09:00–13:00; SIXT anger även hämtning och återlämning dygnet runt.",
-    latitude: 48.8795433,
-    longitude: 2.2781889,
+    meta: "38 avenue des Ternes · 5 aug 17:00",
+    detail: "Bokad och betald envägshyra till CDG Terminal 2D. Intermediate SUV Auto, Peugeot 3008 eller liknande, obegränsade kilometer, Damage Waiver och Excess Protection. Gå ned i Indigo-garaget; kom senast 16:45 eftersom stationen stänger 18:00.",
+    latitude: 48.879014,
+    longitude: 2.2933445,
   },
   {
     name: "208 Suite Guerlain",
